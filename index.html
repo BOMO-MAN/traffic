@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>Bootstrap 101 Template</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+
+    <script src="js/echarts.min.js"></script>
+    <!-- 全国344个市、区、州对应的数字编号 -->
+    <script  src="js/citymap.js"></script>
+
+    <!-- HTML5 shim 和 Respond.js 是为了让 IE8 支持 HTML5 元素和媒体查询（media queries）功能 -->
+    <!-- 警告：通过 file:// 协议（就是直接将 html 页面拖拽到浏览器中）访问页面时 Respond.js 不起作用 -->
+    <!--[if lt IE 9]>
+      <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <!-- 头部 -->
+
+    <!-- 中间统计部分 -->
+    <div class="middle_count_ct">
+      <!-- 时间 -->
+   <!--    <div> 时间控件</div> -->
+      <!-- 车辆统计 -->
+      <div class="row car_count_ct">
+        <div class="col-md-4 row car_icon_ct" style="width: 40%;background:#1a1959;margin-right:15px;">
+          <div class="col-md-4">
+            <img src="img/icon/cars.png" alt="车辆">
+            <h6>总过车数(辆)</h6>
+            <p> <span>2047811</span></p>
+          </div>
+          <div class="col-md-4">
+            <img src="img/icon/car_num.png" alt="车辆">
+            <h6>总报警(条)</h6>
+            <p> <span>2047811</span></p>
+          </div>
+          <div class="col-md-4">
+            <img src="img/icon/car_all.png" alt="车辆">
+            <h6>信息抄告数(条)</h6>
+            <p> <span>2047811</span></p>
+          </div>
+        </div>
+        <div class="col-md-4 car_icon_ct" style="width: 28%; background: #1a1959; margin-right: 15px;">
+          <div class="col-md-6">
+            <img src="img/icon/low.png" alt="车辆">
+            <h6>总违法案件数(件)</h6>
+
+            
+            <p> <span>2047811</span></p>
+          </div>
+          <div class="col-md-6">
+            <img src="img/icon/warn.png" alt="车辆">
+            <h6>结案率</h6>
+            <p> <span>2047811</span></p>
+          </div>
+        </div>
+        <div class="col-md-4 car_icon_ct" style="width: 28%;background: #1a1959;">
+          <div class="col-md-6">
+            <img src="img/icon/break_law.png" alt="车辆">
+            <h6>新增黑名单记录数</h6>
+            <p> <span>2047811</span></p>
+          </div>
+          <div class="col-md-6">
+            <img src="img/icon/schedule_icon.png" alt="车辆">
+            <h6>过镜白名单记录数</h6>
+            <p> <span>2047811</span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 内容 -->
+    <div style="width:100%;overflow: hidden;">
+      <!-- 上半部分 -->
+      <div class="row">
+        <div class="col-md-3">
+          <div class="border-sm">
+            <h5>时间区间内过车流量24小时分布</h4>
+            <div id="ct_flow" style="width: 312px;height:196px;left: 50px;top: 18px;">
+            </div>
+          </div>
+          <div class="border-sm">
+          <h5>时间区间内报警24小时分布</h5>
+          <div id="ct_alert_1" style="width: 316px;height:196px;left:50px;top: 18px;">
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="map_ct">
+           <div id="main" style="width: 100%;height:100%;"></div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="border-sm">
+             <h5>时间区间内违法案件数量</h5>
+             <div id="ct_top_right" style="width: 100%;height: 100%; top:-30px;">
+             </div>
+          </div>
+          <div class="border-sm">
+             <h5>时间区间内轴数分布</h5>
+             <div id="ct_middle_right" style="width: 100%;height: 100%; top:-30px;">
+             </div>
+          </div>
+        </div>
+      </div>
+      <!-- 下半部分 -->
+      <div class="row">
+        <div class="col-md-3">
+          <div class="border-sm">
+             <h5 >时间区间内违法案件24小时分布</h5>
+             <div id="ct_break" style="width: 312px;height:196px;left: 50px;top: 18px;">
+             </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+            <div class="row">
+              <div class="col-md-6 border-lg">
+                 <h5 style="top: 3px;">时间区间内地域分布值</h5>
+                 <div id="ct_bottom_middle" style="width: 100%;height: 100%; top:-30px;">
+                 </div>
+              </div>
+              <div class="col-md-6 border-lg">
+                <h5 style="top: 3px;">时间区间内过车流量</h5>
+                <div id="ct_bottom_right" style="width:100%;height: 100%; top:-30px "></div>
+                </div>
+            </div>
+        </div>
+      <!--   <div class="col-md-3 border-sm"></div> -->
+        <div class="col-md-3 ">
+          <div class="border-sm">
+             <h5>执法案件进度</h5>
+             <div id="3ct_bottom_right" style="width:100%;height: 100%; top:-30px "></div>
+             </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>
